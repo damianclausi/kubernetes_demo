@@ -1,11 +1,12 @@
-Prueba de Kubernetes: Escalado Horizontal y Autoreparación
+
+# Prueba de Kubernetes: Escalado Horizontal y Autoreparación
 Este documento describe los pasos para probar dos características clave de Kubernetes usando Minikube:
 
 Escalado Horizontal: Aumentar el número de instancias (Pods) de una aplicación.
 
 Autoreparación (Self-Healing): Ver cómo Kubernetes reemplaza automáticamente una instancia que falla.
 
-Prerrequisitos
+## Prerrequisitos
 Un clúster de Minikube en funcionamiento.
 
 Un Deployment llamado seminario-php creado a partir de un archivo deploy-seminario-php.yaml.
@@ -14,10 +15,10 @@ Una imagen Docker (seminario-php:latest) cargada en Minikube (minikube image loa
 
 Un Service exponiendo el deployment (creado con kubectl expose ...).
 
-Prueba 1: Escalado Horizontal (De 1 a 3 Réplicas)
+## Prueba 1: Escalado Horizontal (De 1 a 3 Réplicas)
 El objetivo es decirle a Kubernetes que queremos 3 copias de nuestra aplicación corriendo en paralelo.
 
-1. Modificar el Archivo de Deployment
+### 1. Modificar el Archivo de Deployment
 Abre tu archivo deploy-seminario-php.yaml y cambia el valor de replicas de 1 a 3.
 
 YAML
@@ -121,7 +122,7 @@ Ejecuta un bucle while en PowerShell que haga peticiones a esa URL cada medio se
 
 PowerShell
 
-# Reemplaza la URL con la tuya
+### Reemplaza la URL con la tuya
 while (1) { curl http://192.168.49.2:30573; Start-Sleep -Milliseconds 500 }
 Verás una lluvia constante de respuestas de tu aplicación.
 
